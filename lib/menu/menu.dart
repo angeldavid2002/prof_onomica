@@ -1,8 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:prof_onomica/temas/calculadoras/interes_simple.dart';
 import 'package:prof_onomica/temas/calculadoras/gradientes.dart';
-import 'package:prof_onomica/temas/plantillaTema.dart';
+import 'package:prof_onomica/temas/plantilla_tema.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -17,10 +17,10 @@ class _MenuState extends State<Menu> {
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
-        backgroundColor: Color.fromARGB(255, 62, 82, 60),
+        backgroundColor: const Color.fromARGB(255, 62, 82, 60),
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "TEMAS DISPONIBLES",
           style: TextStyle(
             fontSize: 18,
@@ -35,13 +35,13 @@ class _MenuState extends State<Menu> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
           image: AssetImage("assets/images/fondo_de_home.png"),
           fit: BoxFit.cover,
         )),
         child: Padding(
-          padding: EdgeInsets.only(top: 10, bottom: 10, right: 0, left: 0),
+          padding: const EdgeInsets.only(top: 10, bottom: 10, right: 0, left: 0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -53,8 +53,8 @@ class _MenuState extends State<Menu> {
                   primary: false,
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  children: [
-                    item_lista(
+                  children: const [
+                    ItemLista(
                       titulo: "INTERES SIMPLE",
                       ruta: "assets/images/tasa-de-interes.png",
                       pagina: Plantilla(
@@ -62,11 +62,11 @@ class _MenuState extends State<Menu> {
                             "El interés simple es un concepto fundamental en finanzas que se utiliza para calcular el costo de pedir dinero prestado o el beneficio de invertir dinero en una cuenta bancaria o en un proyecto.\nEl interés simple se basa en un porcentaje, llamado tasa de interés, que se aplica al monto principal del préstamo o inversión durante un período de tiempo determinado. Por lo general, la tasa de interés se expresa en términos anuales, aunque también se puede expresar en términos mensuales, trimestrales, semestrales, etc.\nEs importante tener en cuenta que el interés simple no tiene en cuenta el efecto de los intereses generados sobre los intereses previos, por lo que se suele utilizar en situaciones donde el período de tiempo es corto o cuando la tasa de interés es baja. Si el período de tiempo es más largo o la tasa de interés es más alta, se suele utilizar el concepto de interés compuesto, que tiene en cuenta los intereses generados sobre los intereses previos.",
                         titulo: "INTERES SIMPLE",
                         rutaImagen: "assets/images/tasa-de-interes.png",
-                        rutaFormula: "assets/images/formulas_gradiente.png",
-                        calculadora: Gradientes(),
+                        rutaFormula: "assets/images/formulasInteresSimple.jpg",
+                        calculadora: InteresSimple(),
                       ),
                     ),
-                    item_lista(
+                    ItemLista(
                       titulo: "GRADIENTE ARITMETICO",
                       ruta: "assets/images/creciente.png",
                       pagina: Plantilla(
@@ -78,14 +78,14 @@ class _MenuState extends State<Menu> {
                         calculadora: Gradientes(),
                       ),
                     ),
-                    item_lista(
+                    ItemLista(
                       titulo: "TITULO",
                       ruta: "assets/images/it_works.jpg",
                       pagina: Plantilla(
                         calculadora: Gradientes(),
                       ),
                     ),
-                    item_lista(
+                    ItemLista(
                       titulo: "TITULO",
                       ruta: "assets/images/it_works.jpg",
                       pagina: Plantilla(
@@ -103,8 +103,8 @@ class _MenuState extends State<Menu> {
   }
 }
 
-class item_lista extends StatelessWidget {
-  item_lista({required this.titulo, required this.ruta, required this.pagina});
+class ItemLista extends StatelessWidget {
+  const ItemLista({super.key, required this.titulo, required this.ruta, required this.pagina});
 
   final String titulo, ruta;
   final Widget pagina;
@@ -112,7 +112,7 @@ class item_lista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 8, bottom: 0, right: 16, left: 16),
+      padding: const EdgeInsets.only(top: 8, bottom: 0, right: 16, left: 16),
       child: GestureDetector(
         onTap: () {
           Navigator.push(
@@ -124,12 +124,12 @@ class item_lista extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             color: Colors.white,
           ),
-          padding: EdgeInsets.only(top: 8, bottom: 8, right: 16, left: 16),
+          padding: const EdgeInsets.only(top: 8, bottom: 8, right: 16, left: 16),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsets.only(top: 0, bottom: 0, right: 8, left: 8),
+                padding: const EdgeInsets.only(top: 0, bottom: 0, right: 8, left: 8),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -138,7 +138,7 @@ class item_lista extends StatelessWidget {
                       child: Text(
                         titulo,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           color: Color(0xFF154316),
                           fontWeight: FontWeight.bold,
@@ -153,7 +153,7 @@ class item_lista extends StatelessWidget {
               ),
               Padding(
                 padding:
-                    EdgeInsets.only(top: 8, bottom: 8, right: 10, left: 10),
+                    const EdgeInsets.only(top: 8, bottom: 8, right: 10, left: 10),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [

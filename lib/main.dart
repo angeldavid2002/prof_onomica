@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:prof_onomica/menu/menu.dart';
 
@@ -11,22 +9,22 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'prof_onomica',
-      home: inicio(),
+      home: Inicio(),
     );
   }
 }
 
-class inicio extends StatefulWidget {
-  const inicio({super.key});
+class Inicio extends StatefulWidget {
+  const Inicio({super.key});
 
   @override
-  State<inicio> createState() => _inicioState();
+  State<Inicio> createState() => _InicioState();
 }
 
-class _inicioState extends State<inicio> {
+class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +42,7 @@ class _inicioState extends State<inicio> {
       ),
       child: Stack(
         children: [
-          Align(
+          const Align(
             alignment: AlignmentDirectional(0, -0.4),
             child: Text(
               'Bienvenido a \nPROF-ONOMICA!',
@@ -58,10 +56,10 @@ class _inicioState extends State<inicio> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0, 1),
+            alignment: const AlignmentDirectional(0, 1),
             child: Container(
               height: 250,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
@@ -69,9 +67,9 @@ class _inicioState extends State<inicio> {
                 ),
               ),
               child: Align(
-                alignment: AlignmentDirectional(0, 0),
+                alignment: const AlignmentDirectional(0, 0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -101,7 +99,7 @@ class _inicioState extends State<inicio> {
                           ],
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -111,10 +109,10 @@ class _inicioState extends State<inicio> {
                                   style: ButtonStyle(
                                     foregroundColor:
                                         MaterialStateProperty.all<Color>(
-                                            Color.fromARGB(255, 2, 51, 4)),
+                                            const Color.fromARGB(255, 2, 51, 4)),
                                     backgroundColor:
                                         MaterialStateProperty.all<Color>(
-                                            Color.fromARGB(255, 2, 51, 4)),
+                                            const Color.fromARGB(255, 2, 51, 4)),
                                     shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
@@ -126,10 +124,9 @@ class _inicioState extends State<inicio> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Menu()));
-                                    print("funciona");
+                                            builder: (context) => const Menu()));
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     'ENTRAR A LA APLICACION',
                                     style: TextStyle(
                                       fontSize: 18,

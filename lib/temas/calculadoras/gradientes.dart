@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:prof_onomica/temas/plantillaTema.dart';
+import 'package:prof_onomica/temas/plantilla_tema.dart';
 
 class Gradientes extends StatefulWidget {
   const Gradientes({super.key});
@@ -99,6 +99,7 @@ class _GradientesState extends State<Gradientes> {
                       setState(() {
                         _index = 0;
                         resultado = false;
+                        limpiarValores();
                       });
                     },
                     child: const Text(
@@ -130,6 +131,7 @@ class _GradientesState extends State<Gradientes> {
                       setState(() {
                         _index = 1;
                         resultado = false;
+                        limpiarValores();
                       });
                     },
                     child: const Text(
@@ -161,6 +163,7 @@ class _GradientesState extends State<Gradientes> {
                       setState(() {
                         _index = 2;
                         resultado = false;
+                        limpiarValores();
                       });
                     },
                     child: const Text(
@@ -192,6 +195,7 @@ class _GradientesState extends State<Gradientes> {
                       setState(() {
                         _index = 3;
                         resultado = false;
+                        limpiarValores();
                       });
                     },
                     child: const Text(
@@ -223,6 +227,7 @@ class _GradientesState extends State<Gradientes> {
                       setState(() {
                         _index = 4;
                         resultado = false;
+                        limpiarValores();
                       });
                     },
                     child: const Text(
@@ -254,6 +259,7 @@ class _GradientesState extends State<Gradientes> {
                       setState(() {
                         _index = 5;
                         resultado = false;
+                        limpiarValores();
                       });
                     },
                     child: const Text(
@@ -285,6 +291,7 @@ class _GradientesState extends State<Gradientes> {
                       setState(() {
                         _index = 6;
                         resultado = false;
+                        limpiarValores();
                       });
                     },
                     child: const Text(
@@ -511,7 +518,7 @@ class Respuesta extends StatelessWidget {
           Expanded(
             flex: 9,
             child: Container(
-              height: 50,
+              height: 60,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(30),
@@ -711,5 +718,11 @@ String calcular(int index) {
       return numeroPeriodos().toString();
     default:
       return "Error";
+  }
+}
+
+void limpiarValores() {
+  for (var element in _gradiente.variables) {
+    element.valor = null;
   }
 }
