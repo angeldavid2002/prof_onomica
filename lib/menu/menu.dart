@@ -56,11 +56,11 @@ class _MenuState extends State<Menu> {
                   children: [
                     item_lista(
                       titulo: "INTERES SIMPLE",
-                      ruta: "assets/images/it_works.jpg",
+                      ruta: "assets/images/tasa-de-interes.png",
                       pagina: Plantilla(
                         teoria:
                             "En ingeniería económica, el gradiente aritmético se refiere a una serie de pagos iguales que varían de forma aritmética. En otras palabras, cada pago en la serie aumenta o disminuye en una cantidad constante en lugar de una cantidad constante multiplicativa como en el caso del gradiente geométrico.Hay algunas fórmulas útiles que se utilizan para calcular el valor presente y el valor futuro de una serie de pagos con un gradiente aritmético.",
-                        titulo: "GRADIENTE ARITMETICO",
+                        titulo: "INTERES SIMPLE",
                         rutaImagen: "assets/images/creciente.png",
                         rutaFormula: "assets/images/formulas_gradiente.png",
                         calculadora: Gradientes(),

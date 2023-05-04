@@ -488,7 +488,7 @@ class Respuesta extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Container(
-              height: 50,
+              height: 60,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30),
