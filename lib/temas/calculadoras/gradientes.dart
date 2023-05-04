@@ -56,7 +56,7 @@ class _GradientesState extends State<Gradientes> {
       child: Column(
         children: [
           const Titulo(texto: "VARIABLES"),
-          const lineaDecorativa(),
+          const LineaDecorativa(),
           const Text(
             'P = valor presente.\n\n'
             'A = primer pago.\n\n'
@@ -73,9 +73,9 @@ class _GradientesState extends State<Gradientes> {
             ),
             textAlign: TextAlign.center,
           ),
-          const lineaDecorativa(),
+          const LineaDecorativa(),
           const Titulo(texto: "CALCULADORA"),
-          const lineaDecorativa(),
+          const LineaDecorativa(),
           SizedBox(
             height: 50,
             child: ListView(

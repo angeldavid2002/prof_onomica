@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, file_names, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
-
 import 'package:flutter/material.dart';
 
 class Plantilla extends StatelessWidget {
-  const Plantilla({
+  const Plantilla({super.key, 
     this.titulo = "titulo",
     this.rutaImagen = "assets/images/it_works.jpg",
     this.teoria =
@@ -22,22 +20,22 @@ class Plantilla extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 1,
         decoration: BoxDecoration(
             color: Colors.greenAccent,
-            image: DecorationImage(
+            image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('assets/images/fondo_de_home.png')),
             borderRadius: BorderRadius.circular(0)),
         child: Stack(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0x00FFFFFF),
               ),
               child: Align(
-                alignment: AlignmentDirectional(0, -0.89),
+                alignment: const AlignmentDirectional(0, -0.89),
                 child: Text(
                   titulo,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 30,
@@ -46,10 +44,10 @@ class Plantilla extends StatelessWidget {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0, 1),
+              alignment: const AlignmentDirectional(0, 1),
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.8,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0),
@@ -58,7 +56,7 @@ class Plantilla extends StatelessWidget {
                       topRight: Radius.circular(30),
                     )),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                  padding: const EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
                   child: ListView(
                     padding: EdgeInsets.zero,
                     scrollDirection: Axis.vertical,
@@ -73,9 +71,10 @@ class Plantilla extends StatelessWidget {
                           ),
                         )),
                       ]),
-                      lineaDecorativa(),
+                      const LineaDecorativa(),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
@@ -84,7 +83,7 @@ class Plantilla extends StatelessWidget {
                               child: Text(
                                 teoria,
                                 textAlign: TextAlign.justify,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF154316),
                                   fontSize: 15,
@@ -95,11 +94,11 @@ class Plantilla extends StatelessWidget {
                           ],
                         ),
                       ),
-                      lineaDecorativa(),
-                      Titulo(texto: "FORMULA"),
-                      lineaDecorativa(),
-                      imagen(rutaFormula: rutaFormula),
-                      lineaDecorativa(),
+                      const LineaDecorativa(),
+                      const Titulo(texto: "FORMULA"),
+                      const LineaDecorativa(),
+                      Imagen(rutaFormula: rutaFormula),
+                      const LineaDecorativa(),
                       calculadora,
                     ],
                   ),
@@ -113,8 +112,8 @@ class Plantilla extends StatelessWidget {
   }
 }
 
-class imagen extends StatelessWidget {
-  const imagen({
+class Imagen extends StatelessWidget {
+  const Imagen({
     super.key,
     required this.rutaFormula,
   });
@@ -139,7 +138,7 @@ class imagen extends StatelessWidget {
 }
 
 class Titulo extends StatelessWidget {
-  const Titulo({
+  const Titulo({super.key, 
     required this.texto,
   });
   final String texto;
@@ -147,7 +146,7 @@ class Titulo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -156,7 +155,7 @@ class Titulo extends StatelessWidget {
               child: Text(
             texto,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: 'Poppins',
               color: Color(0xFF154316),
               fontWeight: FontWeight.bold,
@@ -168,15 +167,15 @@ class Titulo extends StatelessWidget {
   }
 }
 
-class lineaDecorativa extends StatelessWidget {
-  const lineaDecorativa({
+class LineaDecorativa extends StatelessWidget {
+  const LineaDecorativa({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -184,7 +183,7 @@ class lineaDecorativa extends StatelessWidget {
             child: Container(
               width: 100,
               height: 2,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFF0A360A),
               ),
             ),
@@ -193,7 +192,7 @@ class lineaDecorativa extends StatelessWidget {
             width: 10,
             height: 10,
             decoration: BoxDecoration(
-              color: Color(0xFF0A360A),
+              color: const Color(0xFF0A360A),
               borderRadius: BorderRadius.circular(50),
             ),
           ),
@@ -201,7 +200,7 @@ class lineaDecorativa extends StatelessWidget {
             child: Container(
               width: 100,
               height: 2,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color(0xFF0A360A),
               ),
             ),

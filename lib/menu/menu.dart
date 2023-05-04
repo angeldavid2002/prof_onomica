@@ -59,9 +59,9 @@ class _MenuState extends State<Menu> {
                       ruta: "assets/images/tasa-de-interes.png",
                       pagina: Plantilla(
                         teoria:
-                            "En ingeniería económica, el gradiente aritmético se refiere a una serie de pagos iguales que varían de forma aritmética. En otras palabras, cada pago en la serie aumenta o disminuye en una cantidad constante en lugar de una cantidad constante multiplicativa como en el caso del gradiente geométrico.Hay algunas fórmulas útiles que se utilizan para calcular el valor presente y el valor futuro de una serie de pagos con un gradiente aritmético.",
+                            "El interés simple es un concepto fundamental en finanzas que se utiliza para calcular el costo de pedir dinero prestado o el beneficio de invertir dinero en una cuenta bancaria o en un proyecto.\nEl interés simple se basa en un porcentaje, llamado tasa de interés, que se aplica al monto principal del préstamo o inversión durante un período de tiempo determinado. Por lo general, la tasa de interés se expresa en términos anuales, aunque también se puede expresar en términos mensuales, trimestrales, semestrales, etc.\nEs importante tener en cuenta que el interés simple no tiene en cuenta el efecto de los intereses generados sobre los intereses previos, por lo que se suele utilizar en situaciones donde el período de tiempo es corto o cuando la tasa de interés es baja. Si el período de tiempo es más largo o la tasa de interés es más alta, se suele utilizar el concepto de interés compuesto, que tiene en cuenta los intereses generados sobre los intereses previos.",
                         titulo: "INTERES SIMPLE",
-                        rutaImagen: "assets/images/creciente.png",
+                        rutaImagen: "assets/images/tasa-de-interes.png",
                         rutaFormula: "assets/images/formulas_gradiente.png",
                         calculadora: Gradientes(),
                       ),
