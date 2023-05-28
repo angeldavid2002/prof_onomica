@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:prof_onomica/temas/calculadoras/interes_compuesto.dart';
 import 'package:prof_onomica/temas/calculadoras/interes_simple.dart';
 import 'package:prof_onomica/temas/calculadoras/gradientes.dart';
 import 'package:prof_onomica/temas/plantilla_tema.dart';
@@ -79,12 +80,14 @@ class _MenuState extends State<Menu> {
                       ),
                     ),
                     ItemLista(
-                      titulo: "TITULO",
-                      ruta: "assets/images/logoDefinitivo.png",
+                      titulo: "INTERES COMPUESTO",
+                      ruta: "assets/images/interes_compuesto.png",
                       pagina: Plantilla(
+                        titulo: "INTERES COMPUESTO",
+                        teoria: "El interés compuesto es un concepto financiero de gran importancia debido a su capacidad para generar crecimiento exponencial en las inversiones y deudas a lo largo del tiempo. A diferencia del interés simple, donde los intereses se calculan únicamente sobre el capital inicial, el interés compuesto considera la acumulación de intereses sobre los intereses generados anteriormente.\nLa importancia del interés compuesto radica en su capacidad para potenciar el crecimiento de las inversiones y maximizar el impacto del tiempo en la generación de riqueza.\nA medida que los intereses se reinvierten periódicamente, se produce un efecto de 'interés sobre intereses' que impulsa el crecimiento acelerado de una inversión a largo plazo. Esto significa que cuanto más tiempo se mantenga una inversión con un interés compuesto, mayor será el impacto en su valor final.\nEl interés compuesto no solo es relevante para los inversores, sino también para las personas que tienen deudas. Al entender cómo funciona el interés compuesto, se puede apreciar la importancia de pagar las deudas lo antes posible, ya que el interés compuesto puede trabajar en contra si se acumulan intereses sobre una deuda.",
                         rutaFormula: "assets/images/logoDefinitivo.png",
-                        rutaImagen: "assets/images/logoDefinitivo.png",
-                        calculadora: Gradientes(),
+                        rutaImagen: "assets/images/interes_compuesto.png",
+                        calculadora: InteresCompuesto(),
                       ),
                     ),
                     ItemLista(
