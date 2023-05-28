@@ -80,15 +80,19 @@ class _MenuState extends State<Menu> {
                     ),
                     ItemLista(
                       titulo: "TITULO",
-                      ruta: "assets/images/it_works.jpg",
+                      ruta: "assets/images/logoDefinitivo.png",
                       pagina: Plantilla(
+                        rutaFormula: "assets/images/logoDefinitivo.png",
+                        rutaImagen: "assets/images/logoDefinitivo.png",
                         calculadora: Gradientes(),
                       ),
                     ),
                     ItemLista(
                       titulo: "TITULO",
-                      ruta: "assets/images/it_works.jpg",
+                      ruta: "assets/images/logoDefinitivo.png",
                       pagina: Plantilla(
+                        rutaFormula: "assets/images/logoDefinitivo.png",
+                        rutaImagen: "assets/images/logoDefinitivo.png",
                         calculadora: Gradientes(),
                       ),
                     ),
