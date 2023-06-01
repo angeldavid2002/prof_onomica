@@ -49,6 +49,19 @@ class _GradientesState extends State<Gradientes> {
   final int variable = 0;
   final String titulo = "titulo", respuesta = "respuesta", valor = "valor";
   bool resultado = false;
+  Color Activo = Color(0xFF326933);
+  Color Inactivo = Color.fromARGB(255, 2, 51, 4);
+
+  Color cambiarColor(int index) {
+    Color colorActual;
+    if (index == _index) {
+      colorActual = Activo;
+    } else {
+      colorActual = Inactivo;
+    }
+    return colorActual;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -89,7 +102,7 @@ class _GradientesState extends State<Gradientes> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(0)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -121,7 +134,7 @@ class _GradientesState extends State<Gradientes> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(1)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -153,7 +166,7 @@ class _GradientesState extends State<Gradientes> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(2)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -185,7 +198,7 @@ class _GradientesState extends State<Gradientes> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(3)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -217,7 +230,7 @@ class _GradientesState extends State<Gradientes> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(4)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -249,7 +262,7 @@ class _GradientesState extends State<Gradientes> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(5)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -281,7 +294,7 @@ class _GradientesState extends State<Gradientes> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(6)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),

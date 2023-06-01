@@ -99,7 +99,8 @@ class _InicioState extends State<Inicio> {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -107,12 +108,12 @@ class _InicioState extends State<Inicio> {
                               Expanded(
                                 child: TextButton(
                                   style: ButtonStyle(
-                                    foregroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            const Color.fromARGB(255, 2, 51, 4)),
-                                    backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            const Color.fromARGB(255, 2, 51, 4)),
+                                    foregroundColor: MaterialStateProperty.all<
+                                            Color>(
+                                        const Color.fromARGB(255, 2, 51, 4)),
+                                    backgroundColor: MaterialStateProperty.all<
+                                            Color>(
+                                        const Color.fromARGB(255, 2, 51, 4)),
                                     shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                       RoundedRectangleBorder(
@@ -124,7 +125,8 @@ class _InicioState extends State<Inicio> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => const Menu()));
+                                            builder: (context) =>
+                                                const Menu()));
                                   },
                                   child: const Text(
                                     'ENTRAR A LA APLICACION',
@@ -140,7 +142,6 @@ class _InicioState extends State<Inicio> {
                             ],
                           ),
                         ),
-                        
                       ],
                     ),
                   ),

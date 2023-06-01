@@ -44,6 +44,18 @@ class InteresCompuesto extends StatefulWidget {
 
 class _InteresCompuestoState extends State<InteresCompuesto> {
   bool resultado = false;
+  Color Activo = Color(0xFF326933);
+  Color Inactivo = Color.fromARGB(255, 2, 51, 4);
+
+  Color cambiarColor(int index) {
+    Color colorActual;
+    if (index == _index) {
+      colorActual = Activo;
+    } else {
+      colorActual = Inactivo;
+    }
+    return colorActual;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +94,7 @@ class _InteresCompuestoState extends State<InteresCompuesto> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(0)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -114,7 +126,7 @@ class _InteresCompuestoState extends State<InteresCompuesto> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(1)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -146,7 +158,7 @@ class _InteresCompuestoState extends State<InteresCompuesto> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(2)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -178,7 +190,7 @@ class _InteresCompuestoState extends State<InteresCompuesto> {
                       foregroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 2, 51, 4)),
                       backgroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
+                          cambiarColor(3)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(0.0)),
@@ -490,19 +502,27 @@ String calcular(int index) {
 }
 
 double tiempoNegociacion() {
-  return (buscarVariable("f")/pow((1+buscarVariable("i")),buscarVariable("n")));
+  return (log(buscarVariable("f") / buscarVariable("p")) /
+      log(1 + buscarVariable("i")));
 }
+
 //
 double tasaInteres() {
-  return (pow((buscarVariable("f")/buscarVariable("p")),(1/buscarVariable("n")))-1);
+  return (pow((buscarVariable("f") / buscarVariable("p")),
+          (1 / buscarVariable("n"))) -
+      1);
 }
+
 //
 double valorFuturo() {
-  return (buscarVariable("p")*pow((1+buscarVariable("i")),buscarVariable("n")));
+  return (buscarVariable("p") *
+      pow((1 + buscarVariable("i")), buscarVariable("n")));
 }
+
 //
 double valorPresente() {
-  return (buscarVariable("f")/pow((1+buscarVariable("i")),buscarVariable("n")));
+  return (buscarVariable("f") /
+      pow((1 + buscarVariable("i")), buscarVariable("n")));
 }
 
 void limpiarValores() {

@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:prof_onomica/temas/calculadoras/anualidades.dart';
 import 'package:prof_onomica/temas/calculadoras/interes_compuesto.dart';
 import 'package:prof_onomica/temas/calculadoras/interes_simple.dart';
 import 'package:prof_onomica/temas/calculadoras/gradientes.dart';
@@ -42,14 +42,24 @@ class _MenuState extends State<Menu> {
           fit: BoxFit.cover,
         )),
         child: Padding(
-          padding: const EdgeInsets.only(top: 10, bottom: 10, right: 0, left: 0),
+          padding:
+              const EdgeInsets.only(top: 10, bottom: 10, right: 0, left: 0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ListView(
+                GridView(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // Cantidad de columnas en la cuadrícula
+                    mainAxisSpacing:
+                        1.0, // Espaciado vertical entre los elementos
+                    crossAxisSpacing:
+                        1.0, // Espaciado horizontal entre los elementos
+                    childAspectRatio:
+                        1.0, // Relación de aspecto de los elementos (ancho/alto)
+                  ),
                   padding: EdgeInsets.zero,
                   primary: false,
                   shrinkWrap: true,
@@ -84,19 +94,24 @@ class _MenuState extends State<Menu> {
                       ruta: "assets/images/interes_compuesto.png",
                       pagina: Plantilla(
                         titulo: "INTERES COMPUESTO",
-                        teoria: "El interés compuesto es un concepto financiero de gran importancia debido a su capacidad para generar crecimiento exponencial en las inversiones y deudas a lo largo del tiempo. A diferencia del interés simple, donde los intereses se calculan únicamente sobre el capital inicial, el interés compuesto considera la acumulación de intereses sobre los intereses generados anteriormente.\nLa importancia del interés compuesto radica en su capacidad para potenciar el crecimiento de las inversiones y maximizar el impacto del tiempo en la generación de riqueza.\nA medida que los intereses se reinvierten periódicamente, se produce un efecto de 'interés sobre intereses' que impulsa el crecimiento acelerado de una inversión a largo plazo. Esto significa que cuanto más tiempo se mantenga una inversión con un interés compuesto, mayor será el impacto en su valor final.\nEl interés compuesto no solo es relevante para los inversores, sino también para las personas que tienen deudas. Al entender cómo funciona el interés compuesto, se puede apreciar la importancia de pagar las deudas lo antes posible, ya que el interés compuesto puede trabajar en contra si se acumulan intereses sobre una deuda.",
-                        rutaFormula: "assets/images/logoDefinitivo.png",
+                        teoria:
+                            "El interés compuesto es un concepto financiero de gran importancia debido a su capacidad para generar crecimiento exponencial en las inversiones y deudas a lo largo del tiempo. A diferencia del interés simple, donde los intereses se calculan únicamente sobre el capital inicial, el interés compuesto considera la acumulación de intereses sobre los intereses generados anteriormente.\nLa importancia del interés compuesto radica en su capacidad para potenciar el crecimiento de las inversiones y maximizar el impacto del tiempo en la generación de riqueza.\nA medida que los intereses se reinvierten periódicamente, se produce un efecto de 'interés sobre intereses' que impulsa el crecimiento acelerado de una inversión a largo plazo. Esto significa que cuanto más tiempo se mantenga una inversión con un interés compuesto, mayor será el impacto en su valor final.\nEl interés compuesto no solo es relevante para los inversores, sino también para las personas que tienen deudas. Al entender cómo funciona el interés compuesto, se puede apreciar la importancia de pagar las deudas lo antes posible, ya que el interés compuesto puede trabajar en contra si se acumulan intereses sobre una deuda.",
+                        rutaFormula:
+                            "assets/images/formulasInteresCompuesto.jpg",
                         rutaImagen: "assets/images/interes_compuesto.png",
                         calculadora: InteresCompuesto(),
                       ),
                     ),
                     ItemLista(
-                      titulo: "TITULO",
-                      ruta: "assets/images/logoDefinitivo.png",
+                      titulo: "ANUALIDADES",
+                      ruta: "assets/images/anualidades.png",
                       pagina: Plantilla(
-                        rutaFormula: "assets/images/logoDefinitivo.png",
-                        rutaImagen: "assets/images/logoDefinitivo.png",
-                        calculadora: Gradientes(),
+                        titulo: "ANUALIDADES",
+                        teoria:
+                            "Las anualidades son un concepto importante en matemáticas financieras que se utiliza para calcular el valor presente o futuro de una serie de pagos iguales realizados a intervalos regulares durante un período de tiempo. Estos pagos pueden ser depósitos regulares o retiros de una cuenta, y el intervalo de tiempo puede ser mensual, trimestral, anual, u otro período establecido.La matemática financiera se utiliza para analizar y tomar decisiones sobre inversiones, préstamos, planes de jubilación y otras situaciones financieras. Las anualidades son una herramienta útil en este campo porque permiten calcular el valor total de los pagos futuros o el valor presente de una serie de pagos, lo que ayuda a tomar decisiones informadas.",
+                        rutaFormula: "assets/images/formulasAnualidades.jpg",
+                        rutaImagen: "assets/images/anualidades.png",
+                        calculadora: Anualidades(),
                       ),
                     ),
                   ],
@@ -111,7 +126,11 @@ class _MenuState extends State<Menu> {
 }
 
 class ItemLista extends StatelessWidget {
-  const ItemLista({super.key, required this.titulo, required this.ruta, required this.pagina});
+  const ItemLista(
+      {super.key,
+      required this.titulo,
+      required this.ruta,
+      required this.pagina});
 
   final String titulo, ruta;
   final Widget pagina;
@@ -119,24 +138,27 @@ class ItemLista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8, bottom: 0, right: 16, left: 16),
+      padding: const EdgeInsets.only(top: 8, bottom: 0, right: 5, left: 5),
       child: GestureDetector(
         onTap: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => pagina));
         },
         child: Container(
-          width: 100,
+          width: 60,
+          height: 160,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             color: Colors.white,
           ),
-          padding: const EdgeInsets.only(top: 8, bottom: 8, right: 16, left: 16),
+          padding:
+              const EdgeInsets.only(top: 8, bottom: 8, right: 16, left: 16),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 0, bottom: 0, right: 8, left: 8),
+                padding:
+                    const EdgeInsets.only(top: 0, bottom: 0, right: 8, left: 8),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -159,14 +181,13 @@ class ItemLista extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.only(top: 8, bottom: 8, right: 10, left: 10),
+                padding: const EdgeInsets.only(
+                    top: 8, bottom: 8, right: 30, left: 30),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Expanded(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
                         child: Image.asset(
                           ruta,
                           fit: BoxFit.cover,

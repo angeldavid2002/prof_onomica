@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../plantilla_tema.dart';
@@ -5,18 +7,15 @@ import '../plantilla_tema.dart';
 int _index = 0;
 
 List<Widget> _opciones = <Widget>[
-  const ValorPresente(),
+  const ValorActual(),
   const ValorFuturo(),
-  const TasaInteres(),
-  const TiempoNegociacion()
 ];
 
-class ISimple {
+class Anualidad {
   List<Variable> variables = <Variable>[];
-  ISimple() {
+  Anualidad() {
     variables = [
-      Variable("p"),
-      Variable("f"),
+      Variable("a"),
       Variable("i"),
       Variable("n"),
     ];
@@ -31,18 +30,18 @@ class Variable {
   }
 }
 
-ISimple _iSimple = ISimple();
+Anualidad _anualidad = Anualidad();
 
-class InteresSimple extends StatefulWidget {
-  const InteresSimple({super.key});
+class Anualidades extends StatefulWidget {
+  const Anualidades({super.key});
 
   @override
-  State<InteresSimple> createState() => _InteresSimpleState();
+  State<Anualidades> createState() => _AnualidadesState();
 }
 
-class _InteresSimpleState extends State<InteresSimple> {
+class _AnualidadesState extends State<Anualidades> {
   bool resultado = false;
-  Color Activo = Color(0xFF326933);
+  Color Activo = const Color(0xFF326933);
   Color Inactivo = Color.fromARGB(255, 2, 51, 4);
 
   Color cambiarColor(int index) {
@@ -64,8 +63,9 @@ class _InteresSimpleState extends State<InteresSimple> {
           const Titulo(texto: "VARIABLES"),
           const LineaDecorativa(),
           const Text(
-            'P = valor presente.\n\n'
-            'F = valor futuro.\n\n'
+            'Va = valor actual.\n\n'
+            'VF = valor futuro.\n\n'
+            'a = valor de las anualidades\n\n'
             'i = tasa de interés por período\n\n'
             'n = tiempo de negociacion',
             style: TextStyle(
@@ -106,7 +106,7 @@ class _InteresSimpleState extends State<InteresSimple> {
                       });
                     },
                     child: const Text(
-                      "valor presente",
+                      "Valor actual",
                       style: TextStyle(
                         fontSize: 18,
                         color: Color.fromARGB(255, 255, 255, 255),
@@ -138,71 +138,7 @@ class _InteresSimpleState extends State<InteresSimple> {
                       });
                     },
                     child: const Text(
-                      "valor futuro",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Lexend Deca',
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                  width: 250,
-                  child: TextButton(
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          cambiarColor(2)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0.0)),
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _index = 2;
-                        resultado = false;
-                        limpiarValores();
-                      });
-                    },
-                    child: const Text(
-                      "Tasa de interes",
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.w700,
-                        fontFamily: 'Lexend Deca',
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 50,
-                  width: 250,
-                  child: TextButton(
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                          const Color.fromARGB(255, 2, 51, 4)),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          cambiarColor(3)),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0.0)),
-                      ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _index = 3;
-                        resultado = false;
-                        limpiarValores();
-                      });
-                    },
-                    child: const Text(
-                      "Tiempo de negociacion",
+                      "Valor futuro",
                       style: TextStyle(
                         fontSize: 18,
                         color: Color.fromARGB(255, 255, 255, 255),
@@ -323,8 +259,8 @@ class Respuesta extends StatelessWidget {
   }
 }
 
-class ValorPresente extends StatelessWidget {
-  const ValorPresente({
+class ValorActual extends StatelessWidget {
+  const ValorActual({
     super.key,
   });
 
@@ -332,7 +268,7 @@ class ValorPresente extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        InputVariable(nombreVariable: "f"),
+        InputVariable(nombreVariable: "a"),
         InputVariable(nombreVariable: "i"),
         InputVariable(nombreVariable: "n"),
       ],
@@ -349,43 +285,9 @@ class ValorFuturo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: const [
-        InputVariable(nombreVariable: "p"),
+        InputVariable(nombreVariable: "a"),
         InputVariable(nombreVariable: "i"),
         InputVariable(nombreVariable: "n"),
-      ],
-    );
-  }
-}
-
-class TasaInteres extends StatelessWidget {
-  const TasaInteres({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        InputVariable(nombreVariable: "n"),
-        InputVariable(nombreVariable: "f"),
-        InputVariable(nombreVariable: "p"),
-      ],
-    );
-  }
-}
-
-class TiempoNegociacion extends StatelessWidget {
-  const TiempoNegociacion({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        InputVariable(nombreVariable: "i"),
-        InputVariable(nombreVariable: "f"),
-        InputVariable(nombreVariable: "p"),
       ],
     );
   }
@@ -463,7 +365,7 @@ class _InputVariableState extends State<InputVariable> {
 }
 
 void asignarVariables(String nombre, double? valor) {
-  for (var element in _iSimple.variables) {
+  for (var element in _anualidad.variables) {
     if (element.nombre == nombre) {
       element.valor = valor;
     }
@@ -471,13 +373,13 @@ void asignarVariables(String nombre, double? valor) {
 }
 
 double buscarVariable(String nombre) {
-  if (_iSimple.variables
+  if (_anualidad.variables
           .firstWhere((element) => element.nombre == nombre)
           .valor ==
       null) {
     return 0.0;
   } else {
-    return _iSimple.variables
+    return _anualidad.variables
         .firstWhere((element) => element.nombre == nombre)
         .valor!
         .toDouble();
@@ -487,40 +389,28 @@ double buscarVariable(String nombre) {
 String calcular(int index) {
   switch (index) {
     case 0:
-      return valorPresente().toString();
+      return valorActual().toString();
     case 1:
       return valorFuturo().toString();
-    case 2:
-      return tasaInteres().toString();
-    case 3:
-      return tiempoNegociacion().toString();
     default:
       return "Error";
   }
 }
 
-double tiempoNegociacion() {
-  return ((1 / buscarVariable("i")) *
-      ((buscarVariable("f") / buscarVariable("p")) - 1));
-}
-
-double tasaInteres() {
-  return ((1 / buscarVariable("n")) *
-      ((buscarVariable("f") / buscarVariable("p")) - 1));
-}
-
 double valorFuturo() {
-  return (buscarVariable("p") *
-      (1 + buscarVariable("i") * buscarVariable("n")));
+  return (buscarVariable("a") *
+      ((pow((1 + buscarVariable("i")), buscarVariable("n")) - 1) /
+          buscarVariable("i")));
 }
 
-double valorPresente() {
-  return (buscarVariable("f") /
-      (1 + buscarVariable("n") * buscarVariable("i")));
+double valorActual() {
+  return (buscarVariable("a") *
+      ((1 - pow((1 + buscarVariable("i")), -buscarVariable("n"))) /
+          buscarVariable("i")));
 }
 
 void limpiarValores() {
-  for (var element in _iSimple.variables) {
+  for (var element in _anualidad.variables) {
     element.valor = null;
   }
 }
